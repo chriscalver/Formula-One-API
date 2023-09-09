@@ -42,7 +42,7 @@
             // 
             // txtOutput
             // 
-            txtOutput.Location = new Point(391, 564);
+            txtOutput.Location = new Point(391, 476);
             txtOutput.Multiline = true;
             txtOutput.Name = "txtOutput";
             txtOutput.Size = new Size(359, 45);
