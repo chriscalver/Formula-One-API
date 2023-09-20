@@ -31,11 +31,17 @@ namespace WinFormsApp1
             Task<string> responsData = responseContent.ReadAsStringAsync();
             string data = responsData.Result;
 
-            Root deserialized = JsonConvert.DeserializeObject<Root>(data);
+            
+            Root? deserialized = JsonConvert.DeserializeObject<Root>(data);
 
             txtOutput2.Text = data;
-            lbldriver1.Text = deserialized.MRData.DriverTable.Drivers[0].familyName;
-            txtOutput.Text = deserialized.MRData.DriverTable.Drivers[0].familyName;
+
+            if (deserialized is not null)
+            {
+                lbldriver1.Text = deserialized.MRData.DriverTable.Drivers[0].familyName;
+                txtOutput.Text = deserialized.MRData.DriverTable.Drivers[0].familyName;
+
+            }
 
             httpClient.Dispose();
 
